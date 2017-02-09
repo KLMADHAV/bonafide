@@ -1,0 +1,27 @@
+Download :
+
+# wget http://redrockdigimark.com/apachemirror//httpd/httpd-2.4.25.tar.gz
+
+# tar xzf httpd-2.4.25.tar.gz
+
+# cd httpd-2.4.25
+
+Check all the options using following command.
+
+# ./configure --help 
+
+It may ask for some package dependencies.
+
+# yum install apr-devel gcc apr-util-devel pcre-devel mailcap -y
+
+# ./configure --prefix=/opt/apache2 (if you dont give prefix then it will install in /usr/local/apache2)
+
+# make 
+# echo $? (Should be 0 )
+# make install
+# echo $? (Should be 0 )
+
+Start the apache :
+# /opt/apache2/bin/apachectl start
+# /opt/apache2/bin/apachectl stop
+# /opt/apache2/bin/apachectl restart
