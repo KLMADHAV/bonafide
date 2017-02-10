@@ -71,3 +71,30 @@ Virtual Hosting:
 
 Check in the browser whether those configuration is working or not.
 
+
+
+SSL Configuration:
+----------------------------
+# cd httpd-2.4.25
+# ./config.nice --enable-ssl
+<In between you are going to get some error , Run the following command>
+          # yum install openssl-devel.x86_64 -y
+          # ./config.nice --enable-ssl
+# make clean 
+# make 
+# make install
+
+# cd /opt/apache2
+# cd conf
+# vim httpd.conf
+  Uncomment the following Lines.
+  1) Include conf/extra/httpd-ssl.conf
+  2) LoadModule socache_shmcb_module modules/mod_socache_shmcb.so
+  Add the following Line.
+  LoadModule ssl_module modules/mod_ssl.so
+  
+# openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt
+# cd /opt/apache2/bin
+# ./apachectl restart
+
+Hit the browser with IP address with https and then you can check whether it is working or not
