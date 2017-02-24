@@ -1,0 +1,99 @@
+Install Docker:
+---------------
+
+Procedure 1 :
+-------------
+
+# yum install -y yum-utils
+
+# yum-config-manager \
+    --add-repo \
+    https://docs.docker.com/engine/installation/linux/repo_files/centos/docker.repo
+
+# yum -y install docker-engine
+
+
+Procedure 2:
+-------------
+
+curl -fsSL https://get.docker.com/ | bash
+
+
+--------------------
+Start docker
+
+# systemctl start docker
+# systemctl enable docker
+
+To work for normal user you need to add that user in docker group.
+
+Username: admin
+
+# usermod -aG docker admin
+
+------------------------------------------------------
+docker run 
+docker ps -a 
+docker ps -q
+docker ps -l 
+docker ps -l -q
+------------------------------------------------------
+docker rm ID
+docker rm -f ID
+
+To list all the exited containers then
+
+docker ps -q --filter=status=exited 
+
+To remove all exited containers
+
+Method 1: docker rm `docker ps -q --filter=status=exited `
+Method 2: docekr ps -q --filter=status=exited  | xargs docker rm
+
+
+To remove all containers
+
+docker rm `docekr ps -a -q`
+
+-------------------------------------------
+
+  attach   -> DONE
+  build   
+  commit  
+  cp      
+  create  
+  diff    
+  events  
+  exec    
+  export  
+  history 
+  images  
+  import  
+  info    
+  inspect 
+  kill 	  -> DONE   
+  load    
+  login   
+  logout  
+  logs    
+  pause   -> DONE
+  port    
+  ps      
+  pull    
+  push    
+  rename  
+  restart 
+  rm      -> DONE
+  rmi     
+  run     
+  save    
+  search  
+  start   -> DONE
+  stats   
+  stop     -> DONE
+  tag     
+  top     
+  unpause  -> DONE
+  update  
+  version 
+  wait    
