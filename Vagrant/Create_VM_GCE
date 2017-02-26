@@ -66,6 +66,27 @@ A json file will be downloaded in your laptop. So copy that to server.
 # vagrant init  --> This will create a file called as Vagrantfile
 # cp /root/admin* .
 
+For One VM:
+-----------------------------------------------------------
+Vagrant.configure("2") do |config|
+config.vm.box = "gce"
+config.vm.define "gce2" do |gce2|
+gce2.vm.provider :google do |google, override|
+    google.google_project_id = "demo3-158214"
+    google.google_client_email = "raghu-907@demo3-158214.iam.gserviceaccount.com"
+    google.google_json_key_location = "/root/demo/demo3.json"
+    google.name = "gce2"
+    google.zone = "us-central1-c"
+    google.machine_type = "n1-standard-1"
+    google.image = "centos-7-v20170124"
+    override.ssh.username = "admin"
+    override.ssh.private_key_path = "/root/demo/admin"
+  end
+  end
+end
+-------------------------------------------------------------------
+
+
 Replace the content of Vagrantfile as follows.
 
 ------------------------------------------------------------
