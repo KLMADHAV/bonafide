@@ -60,14 +60,14 @@ docker rm `docekr ps -a -q`
   attach   -> DONE
   build   
   commit  
-  cp      
-  create  
-  diff    
-  events  
-  exec    
+  cp       -> DONE
+  create   -> DONE (Same like docker run)
+  diff     -> DONE
+  events   -> DONE
+  exec     -> DONE
   export  
-  history 
-  images  
+  history  - DONE
+  images   -> DONE
   import  
   info    
   inspect 
@@ -97,3 +97,41 @@ docker rm `docekr ps -a -q`
   update  
   version 
   wait    
+  -----------------------------------------------------------
+  
+  docker cp :
+  
+  docker run -itd centos bash 
+  docker ps -q -l
+  <Container ID>
+  
+  docker cp sample <Container ID>:/tmp  <-- Copies file from machine to
+											container
+  
+  docker cp <Container ID>:/tmp /tmp/sample
+  
+  -----------------------------------------------------------
+  
+  docker diff :
+  
+  docker run -itd centos bash
+  docker attach <ID>
+  vi /tmp/sample 
+  
+  docker diff <ID>
+  
+  C - Change 
+  A - Add
+  D - Delete
+  
+  -----------------------------------------------------------
+  
+  docker exec :
+  
+  docker run -itd centos bash
+  docker diff ID
+  docker exec ID touch /tmp/abc
+  docker diff ID 
+  
+  -----------------------------------------------------------
+  
