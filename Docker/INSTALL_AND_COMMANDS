@@ -69,34 +69,34 @@ docker rm `docekr ps -a -q`
   history  - DONE
   images   -> DONE
   import  
-  info    
-  inspect 
+  info  	-> DONE  
+  inspect   -> DONE
   kill 	  -> DONE   
   load    
   login   
   logout  
-  logs    
-  pause   -> DONE
+  logs   	-> DONE 
+  pause   	-> DONE
   port    
-  ps      
-  pull    
+  ps   		-> DONE   
+  pull    	-> DONE
   push    
-  rename  
-  restart 
-  rm      -> DONE
-  rmi     
-  run     
+  rename  	-> DONE
+  restart   -> DONE
+  rm      	-> DONE
+  rmi     	-> DONE
+  run     	-> DONE
   save    
-  search  
-  start   -> DONE
-  stats   
-  stop     -> DONE
+  search  	-> DONE
+  start   	-> DONE
+  stats   	-> DONE
+  stop     	-> DONE
   tag     
-  top     
-  unpause  -> DONE
+  top     	-> DONE
+  unpause  	-> DONE
   update  
   version 
-  wait    
+  wait    	-> DONE
   -----------------------------------------------------------
   
   docker cp :
