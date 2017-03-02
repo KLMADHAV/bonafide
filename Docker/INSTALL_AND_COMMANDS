@@ -59,20 +59,20 @@ docker rm `docekr ps -a -q`
 
   attach   -> DONE
   build   
-  commit  
+  commit   -> DONE
   cp       -> DONE
   create   -> DONE (Same like docker run)
   diff     -> DONE
   events   -> DONE
   exec     -> DONE
-  export  
+  export   -> DONE
   history  - DONE
   images   -> DONE
-  import  
+  import   -> DONE
   info  	-> DONE  
   inspect   -> DONE
   kill 	  -> DONE   
-  load    
+  load    -> DONE
   login   
   logout  
   logs   	-> DONE 
@@ -86,16 +86,16 @@ docker rm `docekr ps -a -q`
   rm      	-> DONE
   rmi     	-> DONE
   run     	-> DONE
-  save    
+  save     	-> DONE
   search  	-> DONE
   start   	-> DONE
   stats   	-> DONE
   stop     	-> DONE
-  tag     
+  tag     	-> DONE
   top     	-> DONE
   unpause  	-> DONE
   update  
-  version 
+  version   -> DONE
   wait    	-> DONE
   -----------------------------------------------------------
   
@@ -134,4 +134,39 @@ docker rm `docekr ps -a -q`
   docker diff ID 
   
   -----------------------------------------------------------
+  docker save / load :
   
+  On 1st node:
+  -----------------
+  docker run -it centos bash 
+	Cont> useradd rama
+	Cont> yum install vim -y
+	Cont> exit 
+
+  docker diff <ID>
+  docker commit <ID> versionit/centos-with-vim:latest
+  
+  docker images 
+  
+  docker save versionit/centos-with-vim -o centos-with-vim.tar 
+  
+  ### Copy the file from this server to anoither server 
+  ### Use Internal IP address  (ip a)
+  ### Create new server / Install Docker Engine / Start Docker ENgine 
+  ## Assuming IP address is 10.138.0.2 / username as admin
+  ### Enable password authentoication on new server using following process in link.
+  ### https://raw.githubusercontent.com/versionit/bonafide/master/Docker/Enable_password_auth
+  ### Set admin user password 
+  ### passwd admin
+  
+  scp centos-with-vim.tar 10.138.0.2:/home/admin
+  
+  On 2nd Node:
+  ----------------
+  docker load -i centos-with-vim.tar
+  docker images
+  docker run -itd versionit/centos-with-vim bash 
+  docker ps 
+  
+  ------------------------------------------------------------
+  docker export / import :
