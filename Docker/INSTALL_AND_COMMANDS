@@ -58,7 +58,7 @@ docker rm `docekr ps -a -q`
 -------------------------------------------
 
   attach   -> DONE
-  build   
+  build    -> DONE
   commit   -> DONE
   cp       -> DONE
   create   -> DONE (Same like docker run)
@@ -170,3 +170,8 @@ docker rm `docekr ps -a -q`
   
   ------------------------------------------------------------
   docker export / import :
+  ---------------------------------------
+  To remove all docker images you can run the following command.
+
+  docker images  |awk '{print $3}' |grep -v IMAGE  |xargs docker rmi  
+  
