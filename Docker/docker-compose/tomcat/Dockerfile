@@ -18,6 +18,6 @@ ADD https://github.com/versionit/bonafide/blob/master/tomcat/studentapp/mysql-co
 ADD context.xml /opt/tomcat/conf
 ## Adding DB variables
 ADD catalina.sh /opt/tomcat/bin
-
+RUN chmod +x /opt/tomcat/bin/catalina.sh
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
 EXPOSE 8080
