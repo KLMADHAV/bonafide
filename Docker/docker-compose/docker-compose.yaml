@@ -1,8 +1,8 @@
 version: '2'
 services: 
         tomcat:
-                image: rwn0217/tomcat
-                hostname: tomcat
+                build: ./tomcat
+                #hostname: tomcat
                 ports:
                         - 8080:8080
                 links:
@@ -11,7 +11,7 @@ services:
                         - ./sample.env
         mariadb:
                 build: ./mariadb
-                hostname: mariadb
+                #hostname: mariadb
                 ports:
                         - 3306:3306
                 env_file:
