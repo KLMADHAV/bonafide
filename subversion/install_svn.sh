@@ -55,6 +55,18 @@ Print() {
 
 
 ### Main Program
+if [ `sestatus |grep 'SELinux status' |awk '{print $NF}'` = enabled ]; then 
+	echo -e "\n\e[31mSELINUX and IPTABLES are running in system. Disable them first and run this Install\e[0m"
+	echo
+	echo "Run the following command to disable SELINUX and IPTABLES"
+	echo -e "\t\e[35m# curl https://raw.githubusercontent.com/versionit/docs/master/vm-init.sh |bash\e[0m\n"
+	exit 5
+fi
+
+if [ `id -u` -ne 0 ]; then 
+	echo -e "\e[You should run this script as root user\e[0m"
+	exit 4
+fi
 
 Print "SL" "=>> Checking existing configuration if any.. " "B"
 rpm -q httpd &>/dev/null
