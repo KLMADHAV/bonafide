@@ -17,3 +17,12 @@
 ```
 # chef-server-ctl org-create versionit 'VerionIT Consulting' --association_user admin --filename /opt/versionit.pem
 ```
+### 4) Install Chef Web Interface
+
+```
+# chef-server-ctl install chef-manage
+# chef-server-ctl reconfigure
+# chef-manage-ctl reconfigure
+```
+
+### You can access your chef server over web browser now.
