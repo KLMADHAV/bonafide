@@ -41,7 +41,7 @@ execute 'start web server' do
 end
 
 
-
+include_recipe 'httpd::config'
 
 
 

@@ -10,3 +10,5 @@ file '/opt/sample' do
   owner 'admin'
   group 'bin'
 end
+
+include_recipe 'sample::demo'
